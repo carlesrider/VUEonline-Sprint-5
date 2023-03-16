@@ -4,10 +4,34 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/starter.css">
     <title>Sprint 5</title>
 </head>
 <body>
-    <button id="next-joke-button" onclick="fetchJoke()">Get joke</button>
-    <script src="build/src/index.js"></script>
+  <div id="weather">
+    Avui: parcialment ennuvolat
+  </div>
+  <section id="jokes-box">
+    <div class="container">
+      <div class="row gx-md-5 align-items-center justify-content-center align-middle">
+        <div class="col-10 col-md-6 text-center">
+          <div class="card shadow">
+            <div class="card-body">              
+              <h1>Preparat per riure? 🤣</h1>
+              <div id="joke" class="mt-5 mb-5 lead"></div>
+              <div class="d-md-block mt-5">
+                <button class="btn btn-primary shadow" id="next-joke-button" onclick="fetchJoke()">Següent acudit</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+  <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
+  <script type="module" src="assets/js/starter.js"></script>
+  <script src="build/src/index.js"></script>
 </body>
 </html>

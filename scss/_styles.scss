@@ -1,0 +1,73 @@
+section {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    @include media-breakpoint-up(md) {
+        padding-top: 6rem;
+        padding-bottom: 6rem;
+        h3 {
+            font-size: 2.4rem;
+        }
+    }    
+}
+
+.btn {
+    font-weight: 500; 
+    border-width: 2px;
+    &:hover {
+        background-color: $white;
+        &.btn-primary {
+            color: $primary;
+        }
+        &.btn-secondary {
+            color: $secondary;
+        }
+        &.btn-light {
+            border-color: #777;
+            color: #777;
+        }
+    }
+    &.btn-secondary {
+        color: $white;
+    }
+}
+
+#jokes-box {
+    position: relative;
+    padding: 0;
+    &:before {
+        position: absolute;
+        content: "";
+        display: block;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: url('../images/demo-bg.jpg');
+        background-size: cover;
+        opacity: 0.3;
+    }
+    .container .row {
+        min-height: 100vh;
+    }
+    .card-body {
+        padding: 4rem;
+    }
+}
+
+#joke {
+    min-height: 8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#weather {
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    font-size: 1.125rem;
+    font-weight: 500;
+    z-index: 4;
+}
