@@ -7,9 +7,21 @@ const scores = document.getElementById('scores');
 const score1Button = document.getElementById('score1');
 const score2Button = document.getElementById('score2');
 const score3Button = document.getElementById('score3');
+const jokeSources = [
+    {
+        id: 'chucknorris',
+        url: 'https://api.chucknorris.io/jokes/random',
+    },
+    {
+        id: 'icanhazdadjoke',
+        url: 'https://icanhazdadjoke.com/',
+    },
+];
 const fetchJoke = () => {
     const jokeHTML = document.querySelector('#joke');
-    fetch('https://icanhazdadjoke.com/', {
+    let joke = '';
+    const jokeSource = jokeSources[Math.floor(Math.random() * jokeSources.length)];
+    fetch(jokeSource.url, {
         headers: {
             Accept: 'application/json',
         },
@@ -20,7 +32,13 @@ const fetchJoke = () => {
             scores.style.display = 'block';
         }
         if (jokeHTML) {
-            jokeHTML.innerHTML = data.joke;
+            if (jokeSource.id === 'chucknorris') {
+                joke = data.value;
+            }
+            if (jokeSource.id === 'icanhazdadjoke') {
+                joke = data.joke;
+            }
+            jokeHTML.innerHTML = joke;
             currentJoke = nextJoke;
             // Add current Joke to reportJokes
             if (currentScore > 0) {
@@ -31,7 +49,7 @@ const fetchJoke = () => {
                 });
             }
             console.log(reportJokes);
-            nextJoke = data.joke;
+            nextJoke = joke;
             currentScore = 0;
             if (score1Button && score2Button && score3Button) {
                 score1Button.classList.remove('selected');
@@ -40,7 +58,7 @@ const fetchJoke = () => {
             }
         }
         else {
-            console.log(data.joke);
+            console.log(joke);
         }
     });
 };

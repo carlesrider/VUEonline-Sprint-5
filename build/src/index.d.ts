@@ -11,5 +11,9 @@ declare const scores: HTMLElement | null;
 declare const score1Button: HTMLElement | null;
 declare const score2Button: HTMLElement | null;
 declare const score3Button: HTMLElement | null;
+declare const jokeSources: {
+    id: string;
+    url: string;
+}[];
 declare const fetchJoke: () => void;
 declare const fetchWeather: () => void;
