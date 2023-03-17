@@ -64,4 +64,26 @@ if (score1Button && score2Button && score3Button) {
         score3Button.classList.add('selected');
     });
 }
+const fetchWeather = () => {
+    const weatherHTML = document.querySelector('#weather');
+    const apiURL = 'https://api.openweathermap.org/data/2.5/weather?q=sabadell,spain&lang=ca&appid=051d6729add057805f184f0b86bab221';
+    fetch(apiURL, {
+        headers: {
+            Accept: 'application/json',
+        },
+    })
+        .then(response => response.json())
+        .then(data => {
+        if (weatherHTML) {
+            weatherHTML.innerHTML = data.weather[0].description;
+            console.log(data);
+        }
+        else {
+            console.log(data);
+        }
+    });
+};
+document.addEventListener('DOMContentLoaded', () => {
+    fetchWeather();
+}, false);
 //# sourceMappingURL=index.js.map

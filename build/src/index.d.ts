@@ -12,3 +12,4 @@ declare const score1Button: HTMLElement | null;
 declare const score2Button: HTMLElement | null;
 declare const score3Button: HTMLElement | null;
 declare const fetchJoke: () => void;
+declare const fetchWeather: () => void;
